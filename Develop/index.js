@@ -15,7 +15,7 @@ const userQ = () => {
     {
         type: "input",
         message: "Please add a small description about the project.",
-        name: "desciprtion"
+        name: "description"
     },
     {
         type: "input",
@@ -46,26 +46,46 @@ const userQ = () => {
     {
         type: "input",
         message: "Any question please message --",
-        name: "Question"
+        name: "question"
     }
     ]).then(function(data){
         console.log(data);
-        let HTML = generateHTML(data)
+        let readMe = generateReadMe(data);
+        //test
+        // console.log(readMe);
 
-        writeFileAsync("index.html", HTML)
+        writeFileAsync("myREADME.md", readMe)
             err => console.log(("Success!"));
     })
-}
-userQ;
-
+};
 // function to write README file
-function writeToFile(fileName, data) {
+function generateReadMe(data) {
+    let ReadMeString = `
+    # Project Title
+    <h1>${data.title}</h1>
+    # Description
+    <p>${data.description}</p>
+    # Installation
+    <p>${data.installation}</p>
+    # Usage
+    <p>${data.usage}</p>
+    # License
+    <p>${data.license}</p>
+    # Contribution
+    <p>${data.contribution}</p>
+    # Test
+    <p>${data.test}</p>
+    # Quesiton
+    <p>${data.question}</p>
+    `
+    return (ReadMeString);
 }
+userQ();
 
-// function to initialize program
-function init() {
+// // function to initialize program
+// function init() {
 
-}
+// }
 
-// function call to initialize program
-init();
+// // function call to initialize program
+// init();
