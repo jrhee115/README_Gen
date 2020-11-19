@@ -61,22 +61,22 @@ const userQ = () => {
 // function to write README file
 function generateReadMe(data) {
     let ReadMeString = `
-    # Project Title
-    <h1>${data.title}</h1>
+    ## Project Title
+    ${data.title}
     # Description
-    <p>${data.description}</p>
+    ${data.description}
     # Installation
-    <p>${data.installation}</p>
+    ${data.installation}
     # Usage
-    <p>${data.usage}</p>
+    ${data.usage}
     # License
-    <p>${data.license}</p>
+    ${data.license}
     # Contribution
-    <p>${data.contribution}</p>
+    ${data.contribution}
     # Test
-    <p>${data.test}</p>
+    ${data.test}
     # Quesiton
-    <p>${data.question}</p>
+    ${data.question}
     `
     return (ReadMeString);
 }
