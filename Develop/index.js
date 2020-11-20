@@ -1,13 +1,15 @@
 //External Package
 const inquirer = require ('inquirer');
 const fs = require ('fs');
-const until = require('util');
+const util = require('util');
+const generateReadMe = require('./utils/generateMarkdown')
 
-const writeFileAsync = until.promisify(fs.writeFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
 // array of questions for user
-const userQ = () => {
-    inquirer.prompt([{
+function userQ(){
+    return inquirer.prompt([
+    {
         type: "input",
         message: "What is the project's name?",
         name: "title"
@@ -30,7 +32,7 @@ const userQ = () => {
     {
         type: "list",
         message: "Please choose the current license you are using.",
-        choices: ["Apache License 2.0", "MIT", "ISC", "Mozilla Pubilc License", "Eclipse Public License"],
+        choices: ["Apache", "MIT", "MPL2.0", "GPL 3.0"],
         name: "license"
     },
     {
@@ -42,51 +44,42 @@ const userQ = () => {
         type: "input",
         message: "If you tested your project please provide any test resutls",
         name: "test"
-    },
-    {
-        type: "input",
-        message: "Any question please message us at",
-        name: "question"
     }
-    ]).then(function(data){
-        console.log(data);
-        let readMe = generateReadMe(data);
-        //test
-        // console.log(readMe);
+    ])
+    // {
+    //     type: "input",
+    //     message: "Any question please message us at",
+    //     name: "question"
+    // }
+    // ]).then(function(data){
+    //     console.log(data);
+        // let readMe = generateReadMe(data);
+        // //test
+        // // console.log(readMe);
 
-        writeFileAsync("myREADME.md", readMe)
-            err => console.log(("Success!"));
-    })
+        // writeFileAsync("myREADME.md", readMe)
+        //     err => console.log(("Success!"));
+    // })
 };
-userQ();
-// function to write README file
-function generateReadMe(data) {
-    let ReadMeString = `
-    ## Project Title
-    ${data.title}
-    ## Description
-    ${data.description}
-    ## Table of Contents
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Contribution](#contribution)
-    - [Test](#test)
-    - [Question](#question)
-    ## Installation
-    ${data.installation}
-    ## Usage
-    ${data.usage}
-    ## License
-    ${data.license}
-    ## Contribution
-    ${data.contribution}
-    ## Test
-    ${data.test}
-    ## Quesiton
-    ${data.question}
-    `
-    return (ReadMeString);
-}
+userQ()
+    .then(function(data){
+        if (data.license === "Apache"){
+            data.icon = "[![License: Apache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+        }
+        if (data.license === "MIT"){
+            data.icon = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+        }
+        if (data.license === "MPL2.0"){
+            data.icon = "[![License: MPL2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)"
+        }
+        if (data.license === "GPL 3.0"){
+            data.icon = "[![License: GPL 3.0](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
+        }
+        const readMe = generateReadMe(data)
 
+        return writeFileAsync("myREADME.md", readMe)
+    })
+    .then(function (){
+        console.log("Success");
+    })
 
