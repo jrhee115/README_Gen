@@ -45,7 +45,7 @@ const userQ = () => {
     },
     {
         type: "input",
-        message: "Any question please message --",
+        message: "Any question please message us at",
         name: "question"
     }
     ]).then(function(data){
@@ -58,34 +58,35 @@ const userQ = () => {
             err => console.log(("Success!"));
     })
 };
+userQ();
 // function to write README file
 function generateReadMe(data) {
     let ReadMeString = `
     ## Project Title
     ${data.title}
-    # Description
+    ## Description
     ${data.description}
-    # Installation
+    ## Table of Contents
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [License](#license)
+    - [Contribution](#contribution)
+    - [Test](#test)
+    - [Question](#question)
+    ## Installation
     ${data.installation}
-    # Usage
+    ## Usage
     ${data.usage}
-    # License
+    ## License
     ${data.license}
-    # Contribution
+    ## Contribution
     ${data.contribution}
-    # Test
+    ## Test
     ${data.test}
-    # Quesiton
+    ## Quesiton
     ${data.question}
     `
     return (ReadMeString);
 }
-userQ();
 
-// // function to initialize program
-// function init() {
 
-// }
-
-// // function call to initialize program
-// init();
