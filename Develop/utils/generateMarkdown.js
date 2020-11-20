@@ -1,8 +1,7 @@
 // function to generate markdown for README
 function generateReadMe(data) {
-  const ReadMeString = `
-  ## Project Title
-  ${data.title}
+  return `
+  # ${data.title} <div align= "right">${data.icon}</div>
 
   \n ## Description
   ${data.description}
@@ -32,10 +31,8 @@ function generateReadMe(data) {
 
   \n ## Quesiton
   If you have any questions, contact me at my github: jrhee115 
-  
-  You can also email me at: ${data.email}
+  or
+  You can email me at: ${data.email}
   `
-  return (ReadMeString);
 }
-
 module.exports = generateReadMe;

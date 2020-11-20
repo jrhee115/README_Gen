@@ -46,20 +46,6 @@ function userQ(){
         name: "test"
     }
     ])
-    // {
-    //     type: "input",
-    //     message: "Any question please message us at",
-    //     name: "question"
-    // }
-    // ]).then(function(data){
-    //     console.log(data);
-        // let readMe = generateReadMe(data);
-        // //test
-        // // console.log(readMe);
-
-        // writeFileAsync("myREADME.md", readMe)
-        //     err => console.log(("Success!"));
-    // })
 };
 userQ()
     .then(function(data){
