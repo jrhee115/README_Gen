@@ -44,9 +44,22 @@ function userQ(){
         type: "input",
         message: "If you tested your project please provide any test resutls",
         name: "test"
+    },
+    {
+        type: "input",
+        message: "Enter your github username:",
+        name: "githubUser",
+        defualt: "random"
+    },
+    {
+        type: "input",
+        message: "Enter your email:",
+        name: "email",
+        defualt: "random@gmail.com"
     }
     ])
 };
+//license icon 
 userQ()
     .then(function(data){
         if (data.license === "Apache"){
@@ -67,5 +80,5 @@ userQ()
     })
     .then(function (){
         console.log("Success");
-    })
+    });
 

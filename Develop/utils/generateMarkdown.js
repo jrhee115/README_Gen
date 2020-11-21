@@ -30,7 +30,8 @@ function generateReadMe(data) {
   ${data.test}
 
   \n ## Quesiton
-  If you have any questions, contact me at my github: jrhee115 
+  If you have any questions, contact me at:
+  github.com/${data.githubUser} 
   or
   You can email me at: ${data.email}
   `
