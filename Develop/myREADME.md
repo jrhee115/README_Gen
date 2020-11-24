@@ -1,9 +1,12 @@
 
-  # king <div align= "right">[![License: MPL2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)</div>
+  # ReadMe Generator <div align= "right">[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)</div>
 
   
  ## Description
-  sd
+  We were assigned to create a professional ReadMe generator, this would allow the project creator to devot more time to working on their project. We were told to make small questionair to help build the readme. The questions consist of a description, installation instructions, usage information, contribution guidelines, and test instructions.
+
+  ## Sample
+  https://drive.google.com/file/d/1t9HFFDUqThQTDqEGNNvmCyHsIot-2ZpB/view
 
   
  ## Table of Contents
@@ -16,28 +19,29 @@
 
   
  ## Installation
-  sd
+  Had to install node.js and the inquirer
 
   
  ## Usage
-  sd
+  Using the terminal we generated multiple prompt question to generate a ReadMe file
+  ![](./images/ReadMe.png)
 
   
  ## License
-  MPL2.0
+  MIT
 
   
  ## Contribution
-  sd
+  N/A
 
   
  ## Test
-  sd
+  In the terminal use the command "npm test" to test the application
 
   
  ## Quesiton
   If you have any questions, contact me at:
-  github.com/ 
+  github.com/jrhee115 
   or
-  You can email me at: 
+  You can email me at: jayrhee0514@gmail.com
   
